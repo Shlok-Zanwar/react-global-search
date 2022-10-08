@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import GlobalSearch from './lib';
 
+// import home, about, contact pages from react-icons
+import { FaHome, FaInfo, FaPhone, FaEnvelope } from 'react-icons/fa';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <GlobalSearch 
+			items={[
+				{
+					name: 'Home',
+					icon: <FaHome />,
+					pathname: '/',
+					search: 'home',
+					description: 'Home page Home pageHome pageHome pageHome pageHome pageHome pageHome page',
+				},
+				{
+					name: 'About',
+					icon: <FaInfo />,
+					pathname: '/about',
+					search: 'about',
+				},
+				{
+					name: 'Contact',
+					icon: <FaPhone />,
+					pathname: '/contact',
+					search: 'contact',
+				},
+				{
+					name: 'Email',
+					icon: <FaEnvelope />,
+					pathname: '/contact',
+					search: 'contact',
+				},
+			]}
+			displayButton={true}
+			modalTitle="Global Search"
+        />
+    );
 }
 
 export default App;

@@ -1,70 +1,95 @@
-# Getting Started with Create React App
+# react-global-search
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A Centralized Search Component for your React Application.
 
-## Available Scripts
+Use the shortcut key `ctrl + k` to open the search modal (Customizable).
+Search through the items (you can add routes, components, etc) and navigate to the selected item.
 
-In the project directory, you can run:
+Additionally, you can use the `Arrow keys` to navigate through the items and press `Enter` to choose the selected item.
 
-### `npm start`
+Github Repo: https://github.com/Shlok-Zanwar/react-global-search
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Installation
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install react-global-search
+```
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```jsx
+import React from 'react'
+import GlobalSearch from 'react-global-search'
 
-### `npm run build`
+const App = () => {
+  return (
+    <GlobalSearch
+      items={[
+        {
+            name: 'Search Item 1',
+            description: 'Search Item 1 Description',
+            icon: <i className="fa fa-search" />,
+            onClick: () => console.log('Search Item 1 Clicked'),
+            pathname: '/search-item-1',
+            search: 'search item 1 keywords',
+        },
+        {
+            name: 'Search Item 2',
+            description: 'Search Item 2 Description',
+            icon: <i className="fa fa-search" />,
+            onClick: () => console.log('Search Item 2 Clicked'),
+            pathname: '/search-item-2',
+            search: 'search item 2 keywords',
+        },
+      ]}
+    />
+  )
+}
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default App
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Props
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| Name  | Type           | Default | Description                          |
+|-------|----------------| --- |--------------------------------------|
+| items | Array          | [] | Array of search items                |
+| shorcutKey | String         | 'k' | Shorcut key to open the search modal |
+| searchProp | String         | 'search' | The search query prop name           |
+| displayButton | Boolean        | true | Display the search button            |
+| displayButtonRender | String / React Element | 'Search' | The search button render             |
+| modalTitle | String / React Element | 'Global Search' | The search modal title               |
+| modalMaskClassName | String         | '' | The search modal mask class name     |
+| modalMaskStyle | Object         | {} | The search modal mask style          |
+| modalHeaderClassName | String         | '' | The search modal header class name   |
+| modalHeaderStyle | Object         | {} | The search modal header style        |
+| modalBodyClassName | String         | '' | The search modal body class name     |
+| modalBodyStyle | Object         | {} | The search modal body style          |
+| itemClassName | String         | '' | The search item class name           |
+| itemStyle | Object         | {} | The search item style                |
+| highlightedItemStyle | Object         | {} | The highlighted search item style    |
+| highlightedItemClassName | String         | '' | The highlighted search item class name |
+| itemRender | Function         | &#40;item, index&#41; => {} | The search item render               |
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Item Props
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When the user clicks or selects any item, the onClick function will be called. <br />
+If the onClick function is not provided, the item will be redirected to the pathname. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Name  | Type           | Default | Description                          |
+|-------|----------------| --- |--------------------------------------|
+| name | String / React Element | '' | The search item name                 |
+| description | String / React Element | '' | The search item description          |
+| icon | String / React Element | '' | The search item icon                 |
+| onClick | Function         | &#40;&#41; => {} | The search item click handler        |
+| pathname | String         | '' | The search item pathname             |
+| search | String         | '' | The search item search query         |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    
+    
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
