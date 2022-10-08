@@ -9,6 +9,8 @@ Additionally, you can use the `Arrow keys` to navigate through the items and pre
 
 Github Repo: https://github.com/Shlok-Zanwar/react-global-search
 
+<img src="https://raw.githubusercontent.com/Shlok-Zanwar/react-global-search/master/demo-gif.gif" height="500px" >
+
 ## Installation
 
 ```bash
