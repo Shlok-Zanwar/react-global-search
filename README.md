@@ -53,31 +53,37 @@ export default App
 
 ## Props
 
-| Name  | Type           | Default | Description                          |
-|-------|----------------| --- |--------------------------------------|
-| items | Array          | [] | Array of search items                |
-| shorcutKey | String         | 'k' | Shorcut key to open the search modal |
-| searchProp | String         | 'search' | The search query prop name           |
-| displayButton | Boolean        | true | Display the search button            |
+| Name  | Type                   | Default | Description                          |
+|-------|------------------------| --- |--------------------------------------|
+| items | Array                  | [] | Array of search items                |
+| shorcutKey | String                 | 'k' | Shorcut key to open the search modal |
+| searchProp | String                 | 'search' | The search query prop name           |
+| closeOnClick | Boolean                 | true | Close the search modal on item click |
+| displayButton | Boolean                | true | Display the search button            |
 | displayButtonRender | String / React Element | 'Search' | The search button render             |
+| itemClassName | String                 | '' | The search item class name           |
+| itemStyle | Object                 | {} | The search item style                |
+| highlightedItemStyle | Object                 | {} | The highlighted search item style    |
+| highlightedItemClassName | String                 | '' | The highlighted search item class name |
+| searchInputClassName | String                 | '' | The search input class name          |
+| searchInputStyle | Object                 | {} | The search input style               |
+| searchInputPlaceholder | String                 | 'Search...' | The search input placeholder |
+| itemRender | Function               | &#40;item, index&#41; => {} | The search item render               |
 | modalTitle | String / React Element | 'Global Search' | The search modal title               |
-| modalMaskClassName | String         | '' | The search modal mask class name     |
-| modalMaskStyle | Object         | {} | The search modal mask style          |
-| modalHeaderClassName | String         | '' | The search modal header class name   |
-| modalHeaderStyle | Object         | {} | The search modal header style        |
-| modalBodyClassName | String         | '' | The search modal body class name     |
-| modalBodyStyle | Object         | {} | The search modal body style          |
-| itemClassName | String         | '' | The search item class name           |
-| itemStyle | Object         | {} | The search item style                |
-| highlightedItemStyle | Object         | {} | The highlighted search item style    |
-| highlightedItemClassName | String         | '' | The highlighted search item class name |
-| itemRender | Function         | &#40;item, index&#41; => {} | The search item render               |
+| modalMaskClassName | String                 | '' | The search modal mask class name     |
+| modalMaskStyle | Object                 | {} | The search modal mask style          |
+| modalContainerClassName | String                 | '' | The search modal container class name|
+| modalContainerStyle | Object                 | {} | The search modal container style     |
+| modalHeaderClassName | String                 | '' | The search modal header class name   |
+| modalHeaderStyle | Object                 | {} | The search modal header style        |
+| modalBodyClassName | String                 | '' | The search modal body class name     |
+| modalBodyStyle | Object                 | {} | The search modal body style          |
+
 
 
 ## Item Props
 
 When the user clicks or selects any item, the onClick function will be called. <br />
-If the onClick function is not provided, the item will be redirected to the pathname. 
 
 | Name  | Type           | Default | Description                          |
 |-------|----------------| --- |--------------------------------------|
@@ -85,13 +91,14 @@ If the onClick function is not provided, the item will be redirected to the path
 | description | String / React Element | '' | The search item description          |
 | icon | String / React Element | '' | The search item icon                 |
 | onClick | Function         | &#40;&#41; => {} | The search item click handler        |
-| pathname | String         | '' | The search item pathname             |
 | search | String         | '' | The search item search query         |
 
+## Future Improvements / TODO
 
-
-
-    
-    
-
+- [ ] Change to typescript
+- [ ] Add Custom key bindings ( Array of key bindings )
+- [ ] Support for multiple search props
+- [ ] Support tree data structure for items.
+- [ ] Add Custom search function / search algorithm
+- [ ] Add more props to customize the search modal, items, etc
 

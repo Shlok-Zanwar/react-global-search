@@ -9,12 +9,15 @@ export default function Modal({
     title='Modal Title',
     children='Modal Content',
 
+    modalWidth='500px',
+    modalPositionTop='8%',
+
     modalMaskClassName='',
     modalMaskStyle={},
-
+    modalContainerClassName='',
+    modalContainerStyle={},
     modalHeaderClassName='',
     modalHeaderStyle={},
-
     modalBodyClassName='',
     modalBodyStyle={},
 }) {
@@ -47,7 +50,14 @@ export default function Modal({
                 onClick={onClose}
             >
                 <div 
-                    className="rgs-modal-content"
+                    className={`rgs-modal-container ${modalContainerClassName}`}
+                    style={
+                        {
+                            width: modalWidth,
+                            top: modalPositionTop,
+                            ...modalContainerStyle,
+                        }
+                    }
                     onClick={e => e.stopPropagation()}
                 >
                     <div className={`rgs-modal-header ${modalHeaderClassName}`} style={modalHeaderStyle}>

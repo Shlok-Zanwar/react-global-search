@@ -11,6 +11,7 @@ function App() {
 					name: 'Home',
 					icon: <FaHome />,
 					pathname: '/',
+					onClick: () => window.location.pathname = '/',
 					search: 'home',
 					description: 'Home page Home pageHome pageHome pageHome pageHome pageHome pageHome page',
 				},
@@ -19,22 +20,27 @@ function App() {
 					icon: <FaInfo />,
 					pathname: '/about',
 					search: 'about',
+					onClick: () => window.location.pathname = '/about',
 				},
 				{
 					name: 'Contact',
 					icon: <FaPhone />,
 					pathname: '/contact',
+					onClick: () => window.location.pathname = '/contact',
 					search: 'contact',
 				},
 				{
 					name: 'Email',
 					icon: <FaEnvelope />,
-					pathname: '/contact',
-					search: 'contact',
+					pathname: '/email',
+					onClick: () => window.location.pathname = '/contact',
+					search: 'email',
 				},
 			]}
 			displayButton={true}
 			modalTitle="Global Search"
+			// modalPositionTop={"20%"}
+			// modalWidth={"100%"}
         />
     );
 }

@@ -10,7 +10,6 @@ This component opens up in a modal and searches and navigates to the selected it
 Items is an array of objects with the following properties:
     - name: string || React component
     - icon: React component
-    - pathname: string 
     - onClick: function -- optional
     - search: string that will be searched for in the global search
     - description: description of the item
@@ -20,24 +19,34 @@ export default function GlobalSearch({
     shorcutKey='k',
     searchProp='search',
 
+    closeOnClick=true,
+
     displayButton=true,
     displayButtonRender="Search",
-
-    modalTitle='Global Search',
-
-    modalMaskClassName='',
-    modalMaskStyle={},
-    modalHeaderClassName='',
-    modalHeaderStyle={},
-    modalBodyClassName='',
-    modalBodyStyle={},
 
     itemClassName='',
     highlightedItemClassName='',
     itemStyle={},
     highlightedItemStyle={},
 
+    searchInputClassName='',
+    searchInputStyle={},
+    searchInputPlaceholder='Search...',
+
     itemRender=(item, index) => {},
+
+    modalTitle='Global Search',
+    modalWidth,
+    modalPositionTop,
+    modalMaskClassName,
+    modalMaskStyle,
+    modalContainerClassName,
+    modalContainerStyle,
+    modalHeaderClassName,
+    modalHeaderStyle,
+    modalBodyClassName,
+    modalBodyStyle,
+
     
 }) {
     const [searchOpen, setSearchOpen] = useState(false);    // For modal
@@ -70,10 +79,11 @@ export default function GlobalSearch({
 
         if (item.onClick) {
             item.onClick();
-        } else {
-            window.history.pushState(null, null, item.pathname);
-        }
-        setSearchOpen(false);
+        } 
+
+        if(closeOnClick) {
+            setSearchOpen(false);
+        }        
     }
 
     // This is for the up donw keys highlight item 
@@ -112,7 +122,7 @@ export default function GlobalSearch({
 
     // Whenever the search window closes we reset the search and item
     useEffect(() => {
-        if (!searchOpen) {
+        if (searchOpen) {
             setHighlightedItem(0);
             setSearch('');
         }
@@ -145,20 +155,26 @@ export default function GlobalSearch({
                 open={searchOpen}
                 onClose={handleCancel}
 
+                modalWidth={modalWidth}
+                modalPositionTop={modalPositionTop}
+
                 modalMaskClassName={modalMaskClassName}
                 modalMaskStyle={modalMaskStyle}
+                modalContainerClassName={modalContainerClassName}
+                modalContainerStyle={modalContainerStyle}
                 modalHeaderClassName={modalHeaderClassName}
                 modalHeaderStyle={modalHeaderStyle}
                 modalBodyClassName={modalBodyClassName}
                 modalBodyStyle={modalBodyStyle}
             >
                 <input
-                    placeholder="Search"
+                    placeholder={searchInputPlaceholder}
                     key={searchOpen}
                     value={search}
                     onChange={onSearchChange}
                     autoFocus={true}
-                    className="rgs-search-input"
+                    className={`rgs-search-input ${searchInputClassName}`}
+                    style={searchInputStyle}
                 />
                 <div className='rgs-items-container'>
                     {
