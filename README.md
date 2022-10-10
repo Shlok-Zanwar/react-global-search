@@ -8,6 +8,7 @@ Search through the items (you can add routes, components, etc) and navigate to t
 Additionally, you can use the `Arrow keys` to navigate through the items and press `Enter` to choose the selected item.
 
 Github Repo: https://github.com/Shlok-Zanwar/react-global-search
+NPM: https://www.npmjs.com/package/react-global-search
 
 <img src="https://raw.githubusercontent.com/Shlok-Zanwar/react-global-search/master/demo-gif.gif" height="500px" >
 
